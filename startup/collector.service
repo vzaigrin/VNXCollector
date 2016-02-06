@@ -1,0 +1,11 @@
+[Unit]
+Description=Collecting VNX statistics daemon
+After=local-fs.target network-online.target
+Requires=local-fs.target network-online.target
+
+[Service]
+ExecStart=/usr/bin/java -cp /opt/Collector/bin/VNXCollector.jar collector -c /opt/Collector/etc/collector.xml
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

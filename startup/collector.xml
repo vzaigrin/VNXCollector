@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<collector>
+  <configuration>
+    <errorlog>/opt/Collector/log/collector-error.log</errorlog>
+    <carbon address="127.0.0.1" port="2003"></carbon>
+    <interval>10</interval>
+    <replacelist>
+      <replace what="SP " value=""></replace>
+      <replace what="Bus " value=""></replace>
+      <replace what="=" value=""></replace>
+      <replace what="/" value=""></replace>
+      <replace what="Enclosure" value="_"></replace>
+      <replace what="Disk" value="_"></replace>
+      <replace what="%" value="Prct"></replace>
+      <replace what="." value="_"></replace>
+      <replace what="CIFS " value=""></replace>
+      <replace what="SMB Operation " value=""></replace>
+      <replace what="NFS Op " value=""></replace>
+      <replace what="NFS Export " value=""></replace>
+      <replace what="NFS " value=""></replace>
+      <replace what="dVol " value=""></replace>
+      <replace what="MetaVol " value=""></replace>
+      <replace what="device " value=""></replace>
+      <replace what="Filesystem " value=""></replace>
+      <replace what="Network " value=""></replace>
+      <replace what="IP address " value=""></replace>
+      <replace what="Client " value=""></replace>
+      <replace what="id" value=""></replace>
+    </replacelist>
+  </configuration>
+  <vnxblock>
+    <cmd>/opt/Navisphere/bin/naviseccli -User #username -Password #password -Scope 0 -Address #address</cmd>
+    <method>
+      <name>sp</name>
+      <type>simple</type>
+      <cmd>getall -sp</cmd>
+      <paramlist>
+        <param>Prct Busy</param>
+        <param>Read_requests</param>
+        <param>Write_requests</param>
+        <param>Blocks_read</param>
+        <param>Blocks_written</param>
+      </paramlist>
+    </method>
+    <method>
+      <name>cache</name>
+      <type>simple</type>
+      <cmd>getall -cache</cmd>
+      <paramlist>
+        <param>Prct Dirty Cache Pages</param>
+        <param>Prct Cache Pages Owned</param>
+      </paramlist>
+    </method>
+    <method>
+      <name>cache2</name>
+      <type>simple</type>
+      <cmd>cache -sp -info -perfData</cmd>
+      <paramlist>
+        <param>Read Hit Ratio</param>
+        <param>Write Hit Ratio</param>
+        <param>Dirty Cache Pages (MB)</param>
+      </paramlist>
+    </method>
+    <method>
+      <name>fastcache</name>
+      <type>simple</type>
+      <cmd>cache -fast -info</cmd>
+      <paramlist>
+        <param>Percentage Dirty SPA</param>
+        <param>MBs Flushed SPA</param>
+        <param>Percentage Dirty SPB</param>
+        <param>MBs Flushed SPB</param>
+      </paramlist>
+    </method>
+    <method>
+      <name>port</name>
+      <type>flat</type>
+      <cmd>port -list -reads -writes -bread -bwrite -qfull</cmd>
+      <paramlist>
+        <param>Reads</param>
+        <param>Writes</param>
+        <param>Blocks Read</param>
+        <param>Blocks Written</param>
+        <param>Queue Full/Busy</param>
+      </paramlist>
+      <pattern>SP Name</pattern>
+      <headerlist>
+        <header pos="right" sep=":"></header>
+        <header pos="right" sep=":"></header>
+      </headerlist>
+    </method>
+    <method>
+      <name>disk</name>
+      <type>flat</type>
+      <cmd>getdisk -all</cmd> 
+      <paramlist>
+        <param>Read Requests</param>
+        <param>Write Requests</param>
+        <param>Kbytes Read</param>
+        <param>Kbytes Written</param>
+        <param>Hard Read Errors</param>
+        <param>Hard Write Errors</param>
+        <param>Soft Read Errors</param>
+        <param>Soft Write Errors</param>
+        <param>Busy Ticks</param>
+        <param>Busy Ticks SPA</param>
+        <param>Busy Ticks SPB</param>
+        <param>Queue Length</param>
+      </paramlist>
+      <pattern>^Bus [0-9]</pattern>
+      <headerlist>
+        <header pos="all"></header>
+      </headerlist>
+    </method>
+  </vnxblock>
+  <vnxfile>
+    <cmd>export NAS_DB=/nas; /nas/bin/server_stats #server -count 1 -terminationsummary only -format csv -monitor #cmd</cmd>
+    <methods>
+      <method name="basic" cmd="basic-std" type="simple"></method>
+      <method name="cache" cmd="caches-std" type="simple"></method>
+      <method name="cifs" cmd="cifs-std" type="simple"></method>
+      <method name="cifsOps" cmd="cifsOps-std" type="composite"></method>
+      <method name="nfs" cmd="nfs-std" type="simple"></method>
+      <method name="nfsOps" cmd="nfsOps-std" type="composite"></method>
+      <method name="disk" cmd="diskVolumes-std" type="composite"></method>
+      <method name="meta" cmd="metaVolumes-std" type="composite"></method>
+      <method name="net" cmd="netDevices-std" type="composite"></method>
+      <method name="cifsClient" cmd="cifs.client" type="composite"></method>
+      <method name="nfsClient" cmd="nfs.client" type="composite"></method>
+      <method name="nfsExport" cmd="nfs.export" type="composite"></method>
+      <method name="nfsFilesystem" cmd="nfs.filesystem" type="composite3"></method>
+      <method name="storeVolume" cmd="store.volume" type="composite2"></method>
+    </methods>
+  </vnxfile>
+  <vnx>
+    <name>vnx1u</name>
+    <block>
+      <username>sysadmin</username>
+      <password>sysadmin</password>
+      <methods>
+        <method name="sp" title="sp.spa" address="10.10.10.2"></method>
+        <method name="sp" title="sp.spb" address="10.10.10.3"></method>
+        <method name="cache" title="cache.spa" address="10.10.10.2"></method>
+        <method name="cache" title="cache.spb" address="10.10.10.3"></method>
+        <method name="port" title="port" address="10.10.10.2"></method>
+        <method name="disk" title="disk" address="10.10.10.2"></method>
+      </methods>
+    </block>
+    <file>
+      <cs>10.10.10.1</cs>
+      <username>nasadmin</username>
+      <password>nasadmin</password>
+      <servers>
+        <server>server_2</server>
+      </servers>
+      <methods>
+        <method>basic</method>
+        <method>cache</method>
+        <method>nfs</method>
+        <method>nfsOps</method>
+        <method>nfsClient</method>
+        <method>nfsExport</method>
+        <method>nfsFilesystem</method>
+        <method>storeVolume</method>
+        <method>disk</method>
+        <method>meta</method>
+        <method>net</method>
+      </methods>
+    </file>
+  </vnx>
+  <vnx>
+    <name>vnx2u</name>
+    <block>
+      <username>sysadmin</username>
+      <password>sysadmin</password>
+      <methods>
+        <method name="sp" title="sp.spa" address="10.10.20.2"></method>
+        <method name="sp" title="sp.spb" address="10.10.20.3"></method>
+        <method name="cache2" title="cache.spa" address="10.10.20.2"></method>
+        <method name="cache2" title="cache.spb" address="10.10.20.3"></method>
+        <method name="port" title="port" address="10.10.20.2"></method>
+        <method name="disk" title="disk" address="10.10.20.2"></method>
+      </methods>
+    </block>
+    <file>
+      <cs>10.10.20.1</cs>
+      <username>nasadmin</username>
+      <password>nasadmin</password>
+      <servers>
+        <server>server_2</server>
+      </servers>
+      <methods>
+        <method>basic</method>
+        <method>cache</method>
+        <method>nfs</method>
+        <method>nfsOps</method>
+        <method>nfsClient</method>
+        <method>nfsExport</method>
+        <method>nfsFilesystem</method>
+        <method>storeVolume</method>
+        <method>disk</method>
+        <method>meta</method>
+        <method>net</method>
+      </methods>
+    </file>
+  </vnx>
+  <vnx>
+    <name>vnx1b</name>
+    <block>
+      <username>sysadmin</username>
+      <password>sysadmin</password>
+      <methods>
+        <method name="sp" title="sp.spa" address="10.10.30.1"></method>
+        <method name="sp" title="sp.spb" address="10.10.30.2"></method>
+        <method name="cache" title="cache.spa" address="10.10.30.1"></method>
+        <method name="cache" title="cache.spb" address="10.10.30.2"></method>
+        <method name="fastcache" title="fastcache" address="10.10.30.1"></method>
+        <method name="port" title="port" address="10.10.10.1"></method>
+        <method name="disk" title="disk" address="10.10.10.1"></method>
+      </methods>
+    </block>
+  </vnx>
+  <vnx>
+    <name>cellera4</name>
+    <block>
+      <username>nasadmin</username>
+      <password>nasadmin</password>
+      <methods>
+        <method name="sp" title="sp.spa" address="10.10.40.2"></method>
+        <method name="sp" title="sp.spb" address="10.10.40.3"></method>
+        <method name="cache" title="cache.spa" address="10.10.40.2"></method>
+        <method name="cache" title="cache.spb" address="10.10.40.3"></method>
+        <method name="port" title="port" address="10.10.40.2"></method>
+        <method name="disk" title="disk" address="10.10.40.2"></method>
+      </methods>
+    </block>
+    <file>
+      <cs>10.10.40.1</cs>
+      <username>nasadmin</username>
+      <password>nasadmin</password>
+      <servers>
+        <server>server_2</server>
+      </servers>
+      <methods>
+        <method>basic</method>
+        <method>cache</method>
+        <method>cifs</method>
+        <method>cifsOps</method>
+        <method>cifsClient</method>
+        <method>nfs</method>
+        <method>nfsOps</method>
+        <method>nfsClient</method>
+        <method>disk</method>
+        <method>meta</method>
+        <method>net</method>
+      </methods>
+    </file>
+  </vnx>
+</collector>
