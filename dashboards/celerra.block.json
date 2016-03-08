@@ -1,0 +1,1592 @@
+{
+  "id": 13,
+  "title": "celerra.block",
+  "originalTitle": "celerra.block",
+  "tags": [],
+  "style": "dark",
+  "timezone": "browser",
+  "editable": true,
+  "hideControls": false,
+  "sharedCrosshair": false,
+  "rows": [
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "cacheTimeout": "600",
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 1,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(vnx.celerra.block.sp.spa.PrctBusy, 4)"
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(vnx.celerra.block.sp.spb.PrctBusy, 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SP Busy",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "short"
+          ]
+        }
+      ],
+      "title": "SP Busy"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 50,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.spa.Read_requests,vnx.celerra.block.sp.spb.Read_requests)), 1), 'Reads')",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.spa.Write_requests,vnx.celerra.block.sp.spb.Write_requests)), 1), 'Writes')",
+              "textEditor": true
+            },
+            {
+              "refId": "D",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.*.Read_requests,vnx.celerra.block.sp.*.Write_requests)), 1), 'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SP Reads & Writes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "SP Reads & Writes"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 2,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "refId": "A",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Read_requests), 1), 'Reads')",
+              "textEditor": true
+            },
+            {
+              "hide": false,
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Write_requests), 1), 'Writes')",
+              "textEditor": false
+            },
+            {
+              "hide": false,
+              "refId": "C",
+              "target": "alias(sumSeries(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Read_requests), 1),scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Write_requests), 1)),'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPA Reads & Writes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 3,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "refId": "A",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Read_requests), 1), 'Reads')",
+              "textEditor": true
+            },
+            {
+              "hide": false,
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Write_requests), 1), 'Writes')",
+              "textEditor": false
+            },
+            {
+              "refId": "C",
+              "target": "alias(sumSeries(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Read_requests), 1),scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Write_requests), 1)),'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPB Reads & Writes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "SPA and SPB Reads & Writes"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 51,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "hide": false,
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.spa.Blocks_read,vnx.celerra.block.sp.spb.Blocks_read)), 1), 'Reads')",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.spa.Blocks_written,vnx.celerra.block.sp.spb.Blocks_written)), 1), 'Writes')",
+              "textEditor": true
+            },
+            {
+              "refId": "D",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(sumSeries(vnx.celerra.block.sp.*.Blocks_read,vnx.celerra.block.sp.*.Blocks_written)), 1), 'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SP Blocks Read & Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "SP Blocks Read & Written"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 4,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Blocks_read), 1), 'Reads')"
+            },
+            {
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Blocks_written), 1), 'Writes')"
+            },
+            {
+              "refId": "C",
+              "target": "alias(sumSeries(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Blocks_read), 1),scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spa.Blocks_written), 1)),'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPA Blocks Read & Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 5,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Blocks_read), 1), 'Reads')"
+            },
+            {
+              "refId": "B",
+              "target": "alias(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Blocks_written), 1), 'Writes')"
+            },
+            {
+              "refId": "C",
+              "target": "alias(sumSeries(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Blocks_read), 1),scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.sp.spb.Blocks_written), 1)),'Total')",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPB Blocks Read & Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "SPA and SPB Blocks Read & Written"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": 100,
+            "leftMin": 0,
+            "rightLogBase": 1,
+            "rightMax": 100,
+            "rightMin": 0,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)",
+            "thresholdLine": false
+          },
+          "id": 6,
+          "legend": {
+            "alignAsTable": false,
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "rightSide": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [
+            {
+              "alias": "SPA Pages Owned",
+              "yaxis": 2
+            },
+            {
+              "alias": "SPB Pages Owned",
+              "yaxis": 2
+            }
+          ],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "alias(vnx.celerra.block.cache.spa.PrctCachePagesOwned, 'SPA Pages Owned')",
+              "textEditor": false
+            },
+            {
+              "refId": "B",
+              "target": "alias(vnx.celerra.block.cache.spb.PrctCachePagesOwned, 'SPB Pages Owned')",
+              "textEditor": false
+            },
+            {
+              "refId": "C",
+              "target": "alias(vnx.celerra.block.cache.spa.PrctDirtyCachePages, 'SPA Dirty Pages')",
+              "textEditor": false
+            },
+            {
+              "refId": "D",
+              "target": "alias(vnx.celerra.block.cache.spb.PrctDirtyCachePages, 'SPB Dirty Pages')",
+              "textEditor": false
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Cache Pages",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "percent",
+            "percent"
+          ]
+        }
+      ],
+      "title": "Cache & FAST Cache"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 40,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.*.QueueFullBusy), 1), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Ports Queue Full Busy",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Ports Queue Full Busy"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 8,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A0.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A0.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A1.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "D",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A1.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "E",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A2.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "F",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A2.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "G",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A3.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "H",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A3.Writes), -1), 4,5)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPA Ports Reads & Writes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 9,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B0.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B0.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B1.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "D",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B1.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "E",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B2.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "F",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B2.Writes), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "G",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B3.Reads), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "H",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B3.Writes), -1), 4,5)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPB Ports Reads & Writes",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Ports Reads & Writes"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 10,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A0.BlocksRead), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A0.BlocksWritten), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "C",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A1.BlocksRead), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "D",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A1.BlocksWritten), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "E",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A2.BlocksRead), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "F",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A2.BlocksWritten), -1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "G",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A3.BlocksRead), 1), 4,5)",
+              "textEditor": true
+            },
+            {
+              "refId": "H",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.A3.BlocksWritten), -1), 4,5)",
+              "textEditor": true
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPA Ports Blocks Read & Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 11,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": true,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B0.BlocksRead), 1), 4)"
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B0.BlocksWritten), -1), 4)"
+            },
+            {
+              "refId": "C",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B1.BlocksRead), 1), 4)"
+            },
+            {
+              "refId": "D",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B1.BlocksWritten), -1), 4)"
+            },
+            {
+              "refId": "E",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B2.BlocksRead), 1), 4)"
+            },
+            {
+              "refId": "F",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B2.BlocksWritten), -1), 4)"
+            },
+            {
+              "refId": "G",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B3.BlocksRead), 1), 4)"
+            },
+            {
+              "refId": "H",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.port.B3.BlocksWritten), -1), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "SPB Ports Blocks Read & Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Ports Blocks Read & Written"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 46,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(sortByMaxima(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.ReadRequests), 1)), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks Read Requests",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 47,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(sortByMaxima(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.WriteRequests), 1)), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks Write Requests",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Disks Reads & Writes"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 48,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(sortByMaxima(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.KbytesRead), 1)), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks KB Read",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "kbytes",
+            "short"
+          ]
+        },
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 49,
+          "legend": {
+            "avg": true,
+            "current": false,
+            "max": true,
+            "min": false,
+            "show": true,
+            "total": false,
+            "values": true
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 6,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(sortByMaxima(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.KbytesWritten), 1)), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks KB Written",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "kbytes",
+            "short"
+          ]
+        }
+      ],
+      "title": "Disks KB Read & Written"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": true,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 41,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": false,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.BusyTicks), 1), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks Busy Ticks",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Disks Busy Ticks"
+    },
+    {
+      "collapse": false,
+      "editable": true,
+      "height": "250px",
+      "panels": [
+        {
+          "aliasColors": {},
+          "bars": false,
+          "datasource": null,
+          "editable": true,
+          "error": false,
+          "fill": 1,
+          "grid": {
+            "leftLogBase": 1,
+            "leftMax": null,
+            "leftMin": null,
+            "rightLogBase": 1,
+            "rightMax": null,
+            "rightMin": null,
+            "threshold1": null,
+            "threshold1Color": "rgba(216, 200, 27, 0.27)",
+            "threshold2": null,
+            "threshold2Color": "rgba(234, 112, 112, 0.22)"
+          },
+          "id": 44,
+          "legend": {
+            "avg": false,
+            "current": false,
+            "max": false,
+            "min": false,
+            "show": false,
+            "total": false,
+            "values": false
+          },
+          "lines": true,
+          "linewidth": 2,
+          "links": [],
+          "nullPointMode": "null",
+          "percentage": false,
+          "pointradius": 5,
+          "points": false,
+          "renderer": "flot",
+          "seriesOverrides": [],
+          "span": 12,
+          "stack": false,
+          "steppedLine": false,
+          "targets": [
+            {
+              "refId": "A",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.HardReadErrors), 1), 4)"
+            },
+            {
+              "refId": "B",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.HardWriteErrors), 1), 4)"
+            },
+            {
+              "refId": "C",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.SoftReadErrors), 1), 4)"
+            },
+            {
+              "refId": "D",
+              "target": "aliasByNode(scaleToSeconds(nonNegativeDerivative(vnx.celerra.block.disk.*.SoftWriteErrors), 1), 4)"
+            }
+          ],
+          "timeFrom": "24h",
+          "timeShift": "10m",
+          "title": "Disks Hard & Soft Errors",
+          "tooltip": {
+            "shared": true,
+            "value_type": "cumulative"
+          },
+          "type": "graph",
+          "x-axis": true,
+          "y-axis": true,
+          "y_formats": [
+            "short",
+            "short"
+          ]
+        }
+      ],
+      "title": "Disks SPB Busy Ticks"
+    }
+  ],
+  "time": {
+    "from": "now/d",
+    "to": "now"
+  },
+  "timepicker": {
+    "now": true,
+    "refresh_intervals": [
+      "5m",
+      "10m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ],
+    "time_options": [
+      "5m",
+      "15m",
+      "1h",
+      "6h",
+      "12h",
+      "24h",
+      "2d",
+      "7d",
+      "30d"
+    ]
+  },
+  "templating": {
+    "list": []
+  },
+  "annotations": {
+    "list": [
+      {
+        "datasource": "Graphite",
+        "enable": true,
+        "iconColor": "#C0C6BE",
+        "iconSize": 13,
+        "lineColor": "rgba(255, 96, 96, 0.592157)",
+        "name": "celerra.block",
+        "showLine": true
+      }
+    ]
+  },
+  "refresh": false,
+  "schemaVersion": 7,
+  "version": 9,
+  "links": []
+}
